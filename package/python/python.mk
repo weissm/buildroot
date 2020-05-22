@@ -118,12 +118,6 @@ HOST_PYTHON_CONF_OPTS += --enable-unicode=ucs4
 PYTHON_CONF_OPTS += --enable-unicode=ucs4
 endif
 
-ifeq ($(BR2_PACKAGE_PYTHON_2TO3),y)
-PYTHON_CONF_OPTS += --enable-lib2to3
-else
-PYTHON_CONF_OPTS += --disable-lib2to3
-endif
-
 ifeq ($(BR2_PACKAGE_PYTHON_BZIP2),y)
 PYTHON_DEPENDENCIES += bzip2
 else
@@ -171,6 +165,7 @@ PYTHON_CONF_OPTS += \
 	--with-system-ffi \
 	--disable-pydoc \
 	--disable-test-modules \
+	--disable-lib2to3 \
 	--disable-gdbm \
 	--disable-tk \
 	--disable-nis \
